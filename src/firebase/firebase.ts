@@ -1,8 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDDRYexOwQ3-vGLA0JY5GWzrUMUiRoY01Q",
   authDomain: "shopi-49083.firebaseapp.com",
@@ -14,12 +13,14 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);
 
-// Initialize Analytics only in production and if measurementId is provided
-let analytics;
-if (typeof window !== 'undefined' && import.meta.env.VITE_FIREBASE_MEASUREMENT_ID) {
-  analytics = getAnalytics(app);
-}
+// Safe analytics (no crash in Vite/Vercel)
+export let analytics = null;
 
-export { analytics };
+isSupported().then((yes) => {
+  if (yes) {
+    analytics = getAnalytics(app);
+  }
+});

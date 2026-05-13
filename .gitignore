@@ -1,0 +1,36 @@
+# dependencies
+/node_modules/
+
+# production build output
+/dist/
+/build/
+
+# environment files
+.env
+.env.*
+
+# local env config
+.vscode/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Vite & build artifacts
+.vite/
+
+# generated files
+coverage/

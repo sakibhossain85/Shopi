@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F7F1E8;
+  --color-cream: #EFE3D3;
+  --color-beige: #D8C1A3;
+  --color-champagne: #C9A86A;
+  --color-gold: #A77A36;
+  --color-deep-brown: #2B2119;
+  --color-muted-brown: #7A6654;
+  --color-wine: #5D0E11;
+  --color-wine-dark: #4A070A;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-gradient-x: gradient-x 3s ease infinite;
+
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: #F7F1E8;
+  color: #2B2119;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
